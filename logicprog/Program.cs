@@ -1,34 +1,43 @@
 ﻿using System;
 
-namespace Coupon_Number
+namespace StopWatch
 {
-	class Program
-	{
-		public class Coupons
-		{
-			
-			public Coupons()
-			{
-				int distinct = 0, count = 0;
-				Console.WriteLine("Enter a number of given distinct coupons:");
-				int couponNo = Convert.ToInt32(Console.ReadLine());
-				bool[] isCollected = new bool[couponNo];
-				while (distinct < couponNo)
-				{
-					Random random = new Random();
-					int newCoupon = (int)(random.NextDouble() * couponNo);
-					count++;
-					if (!isCollected[newCoupon])
-					{
-						distinct++;
-						isCollected[newCoupon] = true;
-					}
-				}
+    class Program
+    {
+        public class Stopwatches
+        {
+            public Stopwatches()
+            {
+                Stopwatch stopwatch = new Stopwatch();
 
-				Console.WriteLine("Total random number needed to have all distinct coupons:" + count);
-			}
-		}
-	}
-}
+            validation1:
+                Console.WriteLine("To start the stopwatch enter S or s.");
+                char start = Convert.ToChar(Console.ReadLine());
+                stopwatch.Start();
+                if (start == 's' || start == 'S')
+                {
+                validation2:
+                    Console.WriteLine("To stop the stopwatch enter Q or q.");
+                    char end = Convert.ToChar(Console.ReadLine());
+                    if (end == 'q' || end == 'Q')
+                    {
+                        stopwatch.Stop();
+                        Console.WriteLine("stopwatch stopped, the time:" + stopwatch.Elapsed);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong Input");
+                        goto validation2;
+                    }
+                }
+                else
+                {
+                    stopwatch.Stop();
+                    Console.WriteLine("Wrong Input");
+                    goto validation1;
+                }
+            }
+        }
+    }
 
 
