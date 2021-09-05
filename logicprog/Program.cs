@@ -1,30 +1,31 @@
 ﻿using System;
 
-namespace perfectnum
+namespace Primenum
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int num = 28, sum = 0, n;
-            n = num;
-            for (int i = 1; i < num; i++)
+            Console.Write("Enter a Number : ");
+            int number = int.Parse(Console.ReadLine());
+            bool IsPrime = true;
+            for (int i = 2; i < number / 2; i++)
             {
-                if (num % i == 0)
+                if (number % i == 0)
                 {
-                    sum = sum + i;
+                    IsPrime = false;
+                    break;
                 }
             }
-            if (sum == n)
+            if (IsPrime)
             {
-                Console.WriteLine(n + " is a perfect number");
-                Console.ReadLine();
+                Console.Write("Number is Prime.");
             }
             else
             {
-                Console.WriteLine(n + " is not a perfect number");
-                Console.ReadLine();
+                Console.Write("Number is not Prime.");
             }
+            Console.ReadKey();
         }
     }
 }
