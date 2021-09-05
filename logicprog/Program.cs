@@ -1,21 +1,29 @@
 ﻿using System;
 
-namespace fibonacci
+namespace perfectnum
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int num1 = 0, num2 = 1, num3, i, number;
-            Console.Write("Enter the number of elements: ");
-            number = int.Parse(Console.ReadLine());
-            Console.Write(num1 + " " + num2 + " "); //printing 0 and 1    
-            for (i = 2; i < number; ++i) //loop starts from 2 because 0 and 1 are already printed    
+            int num = 28, sum = 0, n;
+            n = num;
+            for (int i = 1; i < num; i++)
             {
-                num3 = num1 + num2;
-                Console.Write(num3 + " ");
-                num1 = num2;
-                num2 = num3;
+                if (num % i == 0)
+                {
+                    sum = sum + i;
+                }
+            }
+            if (sum == n)
+            {
+                Console.WriteLine(n + " is a perfect number");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine(n + " is not a perfect number");
+                Console.ReadLine();
             }
         }
     }
